@@ -7,11 +7,9 @@ from Crypto.Util.Padding import pad, unpad
 import base64
 from groq import Groq
 
-# === AES Constants ===
 BLOCK_SIZE = 16
 KEY = b"mysecretkey12345"
 
-# === AES Functions ===
 def encrypt(text: str) -> str:
     cipher = AES.new(KEY, AES.MODE_CBC, iv=b'\x00' * BLOCK_SIZE)
     padded_text = pad(text.encode(), BLOCK_SIZE)
@@ -32,7 +30,6 @@ st.set_page_config(page_title="AES Encrypt/Decrypt + AI", layout="centered", pag
 st.title("🔐 Secure Text Encryptor & Decryptor + AI Assistant")
 st.markdown("Encrypt and decrypt your messages using AES (CBC mode)")
 
-#input
 st.markdown("### Enter Your Message")
 user_input = st.text_input("Your message", max_chars=100, placeholder="Enter text to encrypt or decrypt...")
 
@@ -74,11 +71,4 @@ if st.button("Ask AI"):
             st.success(chat_completion.choices[0].message.content)
 
 st.markdown("---")
-st.caption("Made with ❤️ by Kabir Khanuja")
-
-# TODOS
-# - Add support for different algorithms (RSA, DES, etc.)
-# - File upload for encrypt/decrypt
-# - Option to download encrypted/decrypted results
-# - Dark mode / Light mode toggle
-# - Use Claude / GPT-4o optionally with switch
+st.caption("Made with ❤by Kabir Khanuja")
