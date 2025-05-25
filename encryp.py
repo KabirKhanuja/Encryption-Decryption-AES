@@ -53,7 +53,7 @@ st.markdown("---")
 
 st.subheader("Chat with us")
 
-groq_key = "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"  #key
+groq_key = ""  #key
 client = Groq(api_key=groq_key)
 
 prompt = st.text_input("Ask something a bout encryption, security, Streamlit, etc.")
